@@ -5,6 +5,7 @@
 using namespace std;
 
 
+
 void Create(int a[], const int n) {
 	for (int i = 0; i < n; i++) {
 		a[i] = -50 + rand() * 101 / RAND_MAX;
@@ -25,10 +26,11 @@ int MySum(int a[], int n) {
 	return s;
 }
 
-int TemplateSum(int mas[], const int n)
+typedef int A;
+int TemplateSum(A mas[], const A n)
 {
-	int s = 0;
-	for (int i = 0; i < n; i++)
+	A s = 0;
+	for (A i = 0; i < n; i++)
 		if (mas[i] % 2 == 0)
 		s += mas[i];
 	return s;
@@ -37,7 +39,7 @@ int TemplateSum(int mas[], const int n)
 
 int main() {
 	const int n = 25;
-	int a[n];
+	int a[n];	
 
 	srand((unsigned)time(NULL));
 
