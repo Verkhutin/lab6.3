@@ -13,7 +13,7 @@ namespace UnitTest63
 		TEST_METHOD(TestMethod1)
 		{
 			int a[4] = { 2, 5, 7, 8 };
-			int t = MySum(a, 4);
+			int t = Sum(a, 4);
 			Assert::AreEqual(t, 10);
 		}
 	};

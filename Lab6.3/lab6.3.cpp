@@ -5,7 +5,6 @@
 using namespace std;
 
 
-
 void Create(int a[], const int n) {
 	for (int i = 0; i < n; i++) {
 		a[i] = -50 + rand() * 101 / RAND_MAX;
@@ -18,7 +17,7 @@ void PrintArr(int a[], const int n) {
 }
 
 
-int MySum(int a[], int n) {
+int Sum(int a[], int n) {
 	int s = 0;
 	for (int i = 0; i < n; i++)
 		if (a[i] % 2 == 0)
@@ -26,11 +25,25 @@ int MySum(int a[], int n) {
 	return s;
 }
 
-typedef int A;
-int TemplateSum(A mas[], const A n)
+
+template <typename A>
+void TemplateCreate(A a[], A n) {
+	for (int i = 0; i < n; i++) {
+		a[i] = -50 + rand() * 101 / RAND_MAX;
+	}
+}
+
+template <typename B>
+void TemplatePrintArr(B a[], B n) {
+	for (int i = 0; i < n; i++)
+		cout << "| " << setw(4) << a[i] << " |";
+}
+
+template <typename T>
+T TemplateSum(T mas[], T n)
 {
-	A s = 0;
-	for (A i = 0; i < n; i++)
+	int s = 0;
+	for (int i = 0; i < n; i++)
 		if (mas[i] % 2 == 0)
 		s += mas[i];
 	return s;
@@ -42,15 +55,24 @@ int main() {
 	int a[n];	
 
 	srand((unsigned)time(NULL));
-
-	cout << "Array: " << endl;
+	
+	cout << "Template Array: " << endl;
 	Create(a, n);
 	PrintArr(a, n);
 	cout << endl;
 	cout << endl;
-	cout << "My sum = " << MySum(a, n) << endl;
+	cout << "Sum = " << Sum(a, n) << endl;
 	cout << endl;
-	cout << "Template sum = " << TemplateSum(a, n) << endl;
+
+	int* a1 = a; const int a2 = n;
+	cout << "Template Array: " << endl;
+	TemplateCreate(a1, a2);
+	int* b1 = a; const int b2 = n;
+	TemplatePrintArr(b1, b2);
+	cout << endl;
+	cout << endl;
+	int* t1 = a; const int t2 = n;
+	cout << "Template sum = " << TemplateSum(t1, t2) << endl;
 
 	return 0;
 }
